@@ -1,25 +1,21 @@
 using System;
 using System.Windows.Forms;
 
+//フォームの基本の型
 class Program
 {
-    [STAThread]
+    [STAThread]     //STAThread属性をマーク（まじない）
     static void Main()
     {
-        DialogResult result = MessageBox.Show(
-            "「はい」か「いいえ」を選択して下さい。", "クック",       //第一引数が内容 第二引数がタイトル
-            MessageBoxButtons.YesNo,     //ボタンの設置
-            MessageBoxIcon.Question);
-
-        if (result == DialogResult.Yes)
-        {
-            MessageBox.Show("「はい」が選択されました。", "結果");
-        }
-        else if (result == DialogResult.No)
-        {
-            MessageBox.Show("「いいえ」が選択されました。", "結果");
-        }
+        Application.Run(new Form1());       //フォーム１をメインウィンドウとして表示
     }
-
-    
 }   
+
+class Form1 : Form
+{
+    //コンストラクタ
+    public Form1()
+    {
+        this.Text = "Hello";        //titleを設定
+    }
+}
